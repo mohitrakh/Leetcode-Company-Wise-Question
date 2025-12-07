@@ -10,7 +10,7 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Code2, User, LogOut, Loader2, BookmarkCheck } from "lucide-react";
+import { Code2, User, LogOut, Loader2, BookmarkCheck, BarChart3 } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 export function Header() {
@@ -64,6 +64,12 @@ export function Header() {
                                 <Link href="/profile" className="flex items-center">
                                     <User className="mr-2 h-4 w-4" />
                                     Profile
+                                </Link>
+                            </DropdownMenuItem>
+                            <DropdownMenuItem asChild className="cursor-pointer text-gray-300 focus:text-white focus:bg-gray-800">
+                                <Link href="/dashboard" className="flex items-center">
+                                    <BarChart3 className="mr-2 h-4 w-4" />
+                                    Dashboard
                                 </Link>
                             </DropdownMenuItem>
                             <DropdownMenuItem asChild className="cursor-pointer text-gray-300 focus:text-white focus:bg-gray-800">

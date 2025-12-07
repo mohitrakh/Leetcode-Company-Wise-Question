@@ -1,29 +1,15 @@
+"use client";
+
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { Header } from "@/components/layout/Header";
 import { ArrowRight, Code2, TrendingUp, Users } from "lucide-react";
 
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col bg-black text-white selection:bg-orange-500/30">
-      {/* Navigation */}
-      <header className="container mx-auto flex h-16 items-center justify-between px-4">
-        <div className="flex items-center gap-2 font-bold text-xl tracking-tighter">
-          <Code2 className="h-6 w-6 text-orange-500" />
-          <span>LeetCode<span className="text-orange-500">Explorer</span></span>
-        </div>
-        <nav className="flex gap-4">
-          <Link href="/explorer">
-            <Button variant="ghost" className="text-gray-300 hover:text-white hover:bg-white/10">
-              Explorer
-            </Button>
-          </Link>
-          <Link href="/login">
-            <Button variant="outline" className="border-gray-700 bg-transparent text-gray-300 hover:bg-white/10 hover:text-white">
-              Sign In
-            </Button>
-          </Link>
-        </nav>
-      </header>
+      {/* Use shared Header component for consistent auth state */}
+      <Header />
 
       {/* Hero Section */}
       <main className="flex-1">
@@ -47,14 +33,16 @@ export default function Home() {
 
           <div className="flex flex-col gap-4 sm:flex-row">
             <Link href="/explorer">
-              <Button size="lg" className="h-12 bg-orange-600 px-8 text-base font-semibold text-white hover:bg-orange-500">
+              <Button size="lg" className="h-12 bg-orange-600 px-8 text-base font-semibold text-white hover:bg-orange-500 cursor-pointer">
                 Start Exploring
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
-            <Button size="lg" variant="outline" className="h-12 border-gray-700 bg-transparent px-8 text-base text-gray-300 hover:bg-white/10 hover:text-white">
-              View Roadmap
-            </Button>
+            <Link href="/dashboard">
+              <Button size="lg" variant="outline" className="h-12 border-gray-700 bg-transparent px-8 text-base text-gray-300 hover:bg-white/10 hover:text-white cursor-pointer">
+                View Dashboard
+              </Button>
+            </Link>
           </div>
         </section>
 
@@ -85,9 +73,9 @@ export default function Home() {
               <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-purple-500/10 text-purple-500">
                 <Users className="h-6 w-6" />
               </div>
-              <h3 className="mb-2 text-xl font-bold text-white">Community Driven</h3>
+              <h3 className="mb-2 text-xl font-bold text-white">Track Progress</h3>
               <p className="text-gray-400">
-                Join thousands of developers preparing for roles at FAANG and top startups.
+                Mark questions as solved, add notes, and track your readiness for each company.
               </p>
             </div>
           </div>
