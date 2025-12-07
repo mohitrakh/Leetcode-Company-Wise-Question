@@ -34,6 +34,11 @@ export function Header() {
                         Explorer
                     </Button>
                 </Link>
+                <Link href="/insights">
+                    <Button variant="ghost" className="text-gray-300 hover:text-white hover:bg-white/10">
+                        Insights
+                    </Button>
+                </Link>
 
                 {isLoading ? (
                     <Loader2 className="h-5 w-5 animate-spin text-gray-400" />

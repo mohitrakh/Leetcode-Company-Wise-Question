@@ -22,7 +22,7 @@ export function DifficultyChart({ data }: DifficultyChartProps) {
     const totalSolved = chartData.reduce((sum, d) => sum + d.value, 0);
 
     return (
-        <div className="flex items-center gap-6">
+        <div className="flex items-center justify-center gap-6 h-full!">
             <div className="relative w-[160px] h-[160px]">
                 <ResponsiveContainer width="100%" height="100%">
                     <PieChart>

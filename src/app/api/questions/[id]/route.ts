@@ -10,7 +10,6 @@ export async function GET(
         await connectDB();
         const { id } = await params;
         const question = await Question.findById(id).lean();
-
         if (!question) {
             return NextResponse.json({ error: 'Question not found' }, { status: 404 });
         }

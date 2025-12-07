@@ -142,6 +142,37 @@ export default function DashboardPage() {
                     </Card>
                 )}
 
+                {/* Charts Row */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                    {/* Difficulty Breakdown */}
+                    {stats && (
+                        <Card className="border-gray-800 bg-gray-900/50 backdrop-blur flex justify-between">
+                            <CardHeader>
+                                <CardTitle className="text-lg text-gray-200">Difficulty Breakdown</CardTitle>
+                            </CardHeader>
+                            <CardContent className="h-full">
+                                <DifficultyChart data={stats.byDifficulty} />
+                            </CardContent>
+                        </Card>
+                    )}
+
+                    {/* Company Readiness */}
+                    {stats && (
+                        <Card className="border-gray-800 bg-gray-900/50 backdrop-blur">
+                            <CardHeader>
+                                <div className="flex items-center gap-2">
+                                    <Building2 className="h-5 w-5 text-gray-400" />
+                                    <CardTitle className="text-lg text-gray-200">Company Readiness</CardTitle>
+                                </div>
+                                <p className="text-sm text-gray-500">Top 20 companies by question count</p>
+                            </CardHeader>
+                            <CardContent>
+                                <CompanyReadiness data={stats.companyReadiness} />
+                            </CardContent>
+                        </Card>
+                    )}
+                </div>
+
                 {/* Data Insights Row */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
                     {/* Most Common Questions */}
@@ -177,37 +208,6 @@ export default function DashboardPage() {
                     )}
                 </div>
 
-                {/* Charts Row */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-                    {/* Difficulty Breakdown */}
-                    {stats && (
-                        <Card className="border-gray-800 bg-gray-900/50 backdrop-blur">
-                            <CardHeader>
-                                <CardTitle className="text-lg text-gray-200">Difficulty Breakdown</CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <DifficultyChart data={stats.byDifficulty} />
-                            </CardContent>
-                        </Card>
-                    )}
-
-                    {/* Company Readiness */}
-                    {stats && (
-                        <Card className="border-gray-800 bg-gray-900/50 backdrop-blur">
-                            <CardHeader>
-                                <div className="flex items-center gap-2">
-                                    <Building2 className="h-5 w-5 text-gray-400" />
-                                    <CardTitle className="text-lg text-gray-200">Company Readiness</CardTitle>
-                                </div>
-                                <p className="text-sm text-gray-500">Top 20 companies by question count</p>
-                            </CardHeader>
-                            <CardContent>
-                                <CompanyReadiness data={stats.companyReadiness} />
-                            </CardContent>
-                        </Card>
-                    )}
-                </div>
-
                 {/* Recent Activity */}
                 {stats && (
                     <Card className="border-gray-800 bg-gray-900/50 backdrop-blur">
@@ -226,7 +226,7 @@ export default function DashboardPage() {
                 {/* Back Link */}
                 <div className="mt-8 text-center">
                     <Link href="/explorer">
-                        <Button variant="ghost" className="text-gray-400 hover:text-white cursor-pointer">
+                        <Button variant="ghost" className="text-gray-400 hover:text-white hover:bg-gray-800 cursor-pointer">
                             ← Back to Explorer
                         </Button>
                     </Link>

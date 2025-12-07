@@ -69,7 +69,7 @@ export function ActivityHeatmap({ data }: ActivityHeatmapProps) {
     const dayLabels = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
     return (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto scrollbar-hide">
             {/* Month labels */}
             <div className="flex mb-1 ml-8">
                 {months.map((m, i) => (

@@ -28,7 +28,7 @@ export function InsightList({ data, type }: InsightListProps) {
     };
 
     return (
-        <div className="space-y-2 max-h-[300px] overflow-y-auto pr-2">
+        <div className="space-y-2 max-h-[300px] overflow-y-auto pr-2 scrollbar-hide">
             {data.length === 0 ? (
                 <p className="text-gray-500 text-center py-4">No data available</p>
             ) : (

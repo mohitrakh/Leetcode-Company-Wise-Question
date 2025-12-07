@@ -24,6 +24,7 @@ export interface IUser {
     name: string;
     password: string;
     avatar?: string;
+    leetcodeUsername?: string;
     createdAt: Date;
 }
 
@@ -63,6 +64,7 @@ const UserSchema = new Schema<IUser>({
     name: { type: String, required: true, trim: true },
     password: { type: String, required: true },
     avatar: { type: String, default: '' },
+    leetcodeUsername: { type: String, default: '' },
     createdAt: { type: Date, default: Date.now }
 });
 

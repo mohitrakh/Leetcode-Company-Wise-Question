@@ -25,7 +25,7 @@ export function CompanyReadiness({ data }: CompanyReadinessProps) {
     };
 
     return (
-        <div className="space-y-3 max-h-[400px] overflow-y-auto pr-2">
+        <div className="space-y-3 max-h-[400px] overflow-y-auto pr-2 scrollbar-hide">
             {data.length === 0 ? (
                 <p className="text-gray-500 text-center py-4">No data yet. Start solving questions!</p>
             ) : (
