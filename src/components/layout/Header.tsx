@@ -26,7 +26,7 @@ export function Header() {
         <header className="container mx-auto flex h-16 items-center justify-between px-4 border-b border-gray-800">
             <Link href="/" className="flex items-center gap-2 font-bold text-xl tracking-tighter">
                 <Code2 className="h-6 w-6 text-orange-500" />
-                <span>LeetCode<span className="text-orange-500">Explorer</span></span>
+                <span>LC Company<span className="text-orange-500">Prep</span></span>
             </Link>
             <nav className="flex items-center gap-4">
                 <Link href="/explorer">

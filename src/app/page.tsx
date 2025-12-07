@@ -5,7 +5,11 @@ import { Button } from "@/components/ui/button";
 import { Header } from "@/components/layout/Header";
 import { ArrowRight, Code2, TrendingUp, Users } from "lucide-react";
 
+import { useAuth } from "@/contexts/AuthContext";
+
 export default function Home() {
+  const { user } = useAuth();
+
   return (
     <div className="flex min-h-screen flex-col bg-black text-white selection:bg-orange-500/30">
       {/* Use shared Header component for consistent auth state */}
@@ -38,11 +42,13 @@ export default function Home() {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
-            <Link href="/dashboard">
-              <Button size="lg" variant="outline" className="h-12 border-gray-700 bg-transparent px-8 text-base text-gray-300 hover:bg-white/10 hover:text-white cursor-pointer">
-                View Dashboard
-              </Button>
-            </Link>
+            {user && (
+              <Link href="/dashboard">
+                <Button size="lg" variant="outline" className="h-12 border-gray-700 bg-transparent px-8 text-base text-gray-300 hover:bg-white/10 hover:text-white cursor-pointer">
+                  View Dashboard
+                </Button>
+              </Link>
+            )}
           </div>
         </section>
 
@@ -83,7 +89,27 @@ export default function Home() {
       </main>
 
       <footer className="border-t border-gray-800 bg-black py-8 text-center text-sm text-gray-500">
-        <p>© 2025 LeetCode Explorer. Built for developers.</p>
+        <p className="mb-2">© 2025 LC Company Prep. Built for developers.</p>
+        <p>
+          Created by{" "}
+          <a
+            href="https://github.com/mohitrakh"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-orange-500 hover:text-orange-400 transition-colors"
+          >
+            Mohit Rakh
+          </a>
+          {" • "}
+          <a
+            href="https://www.linkedin.com/in/mohit-rakh/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500 hover:text-blue-400 transition-colors"
+          >
+            LinkedIn
+          </a>
+        </p>
       </footer>
     </div>
   );

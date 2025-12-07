@@ -14,8 +14,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "LeetCode Explorer",
+  title: "LC Company Prep",
   description: "Browse and filter LeetCode questions from top tech companies",
+  icons: {
+    icon: '/favicon.png',
+  },
 };
 
 export default function RootLayout({

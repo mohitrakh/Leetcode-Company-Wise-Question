@@ -88,19 +88,11 @@ export default function InsightsPage() {
         </div>
     );
 
-    if (loading) {
-        return (
-            <div className="min-h-screen bg-black flex items-center justify-center">
-                <Loader2 className="h-8 w-8 animate-spin text-orange-500" />
-            </div>
-        );
-    }
-
     return (
         <div className="min-h-screen bg-black text-white">
             <Header />
 
-            <div className="container mx-auto max-w-5xl p-6">
+            <div className="container mx-auto max-w-7xl p-6">
                 {/* Page Header */}
                 <div className="flex items-center justify-between mb-8">
                     <div>
@@ -109,62 +101,68 @@ export default function InsightsPage() {
                     </div>
                 </div>
 
-                <Tabs defaultValue="common" className="w-full">
-                    <TabsList className="grid w-full grid-cols-2 bg-gray-900 border border-gray-800 mb-6">
-                        <TabsTrigger
-                            value="common"
-                            className="data-[state=active]:bg-blue-500/20 text-white data-[state=active]:text-blue-400 cursor-pointer"
-                        >
-                            <TrendingUp className="h-4 w-4 mr-2" />
-                            Most Common ({mostCommon.length})
-                        </TabsTrigger>
-                        <TabsTrigger
-                            value="gems"
-                            className="data-[state=active]:bg-purple-500/20 text-white data-[state=active]:text-purple-400 cursor-pointer"
-                        >
-                            <Gem className="h-4 w-4 mr-2" />
-                            Hidden Gems ({hiddenGems.length})
-                        </TabsTrigger>
-                    </TabsList>
+                {loading ? (
+                    <div className="flex items-center justify-center py-20">
+                        <Loader2 className="h-8 w-8 animate-spin text-orange-500" />
+                    </div>
+                ) : (
+                    <Tabs defaultValue="common" className="w-full">
+                        <TabsList className="grid w-full grid-cols-2 bg-gray-900 border border-gray-800 mb-6">
+                            <TabsTrigger
+                                value="common"
+                                className="data-[state=active]:bg-blue-500/20 text-white data-[state=active]:text-blue-400 cursor-pointer"
+                            >
+                                <TrendingUp className="h-4 w-4 mr-2" />
+                                Most Common ({mostCommon.length})
+                            </TabsTrigger>
+                            <TabsTrigger
+                                value="gems"
+                                className="data-[state=active]:bg-purple-500/20 text-white data-[state=active]:text-purple-400 cursor-pointer"
+                            >
+                                <Gem className="h-4 w-4 mr-2" />
+                                Hidden Gems ({hiddenGems.length})
+                            </TabsTrigger>
+                        </TabsList>
 
-                    <TabsContent value="common">
-                        <Card className="border-gray-800 bg-gray-900/50 backdrop-blur">
-                            <CardHeader>
-                                <CardTitle className="text-lg text-gray-200 flex items-center gap-2">
-                                    <TrendingUp className="h-5 w-5 text-blue-400" />
-                                    Most Common Questions
-                                </CardTitle>
-                                <p className="text-sm text-gray-500">
-                                    Questions asked by the most companies. These are fundamental problems you must master.
-                                </p>
-                            </CardHeader>
-                            <CardContent className="space-y-2">
-                                {mostCommon.map((item, index) => (
-                                    <QuestionRow key={item._id} item={item} index={index} showCompanyCount={true} />
-                                ))}
-                            </CardContent>
-                        </Card>
-                    </TabsContent>
+                        <TabsContent value="common">
+                            <Card className="border-gray-800 bg-gray-900/50 backdrop-blur">
+                                <CardHeader>
+                                    <CardTitle className="text-lg text-gray-200 flex items-center gap-2">
+                                        <TrendingUp className="h-5 w-5 text-blue-400" />
+                                        Most Common Questions
+                                    </CardTitle>
+                                    <p className="text-sm text-gray-500">
+                                        Questions asked by the most companies. These are fundamental problems you must master.
+                                    </p>
+                                </CardHeader>
+                                <CardContent className="space-y-2">
+                                    {mostCommon.map((item, index) => (
+                                        <QuestionRow key={item._id} item={item} index={index} showCompanyCount={true} />
+                                    ))}
+                                </CardContent>
+                            </Card>
+                        </TabsContent>
 
-                    <TabsContent value="gems">
-                        <Card className="border-gray-800 bg-gray-900/50 backdrop-blur">
-                            <CardHeader>
-                                <CardTitle className="text-lg text-gray-200 flex items-center gap-2">
-                                    <Gem className="h-5 w-5 text-purple-400" />
-                                    Hidden Gems
-                                </CardTitle>
-                                <p className="text-sm text-gray-500">
-                                    High acceptance rate questions (60%+) with moderate company coverage. Easy wins for quick prep!
-                                </p>
-                            </CardHeader>
-                            <CardContent className="space-y-2">
-                                {hiddenGems.map((item, index) => (
-                                    <QuestionRow key={item._id} item={item} index={index} showCompanyCount={false} />
-                                ))}
-                            </CardContent>
-                        </Card>
-                    </TabsContent>
-                </Tabs>
+                        <TabsContent value="gems">
+                            <Card className="border-gray-800 bg-gray-900/50 backdrop-blur">
+                                <CardHeader>
+                                    <CardTitle className="text-lg text-gray-200 flex items-center gap-2">
+                                        <Gem className="h-5 w-5 text-purple-400" />
+                                        Hidden Gems
+                                    </CardTitle>
+                                    <p className="text-sm text-gray-500">
+                                        High acceptance rate questions (60%+) with moderate company coverage. Easy wins for quick prep!
+                                    </p>
+                                </CardHeader>
+                                <CardContent className="space-y-2">
+                                    {hiddenGems.map((item, index) => (
+                                        <QuestionRow key={item._id} item={item} index={index} showCompanyCount={false} />
+                                    ))}
+                                </CardContent>
+                            </Card>
+                        </TabsContent>
+                    </Tabs>
+                )}
             </div>
         </div>
     );
