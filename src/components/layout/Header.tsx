@@ -10,7 +10,7 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Code2, User, LogOut, Loader2, BookmarkCheck, BarChart3 } from "lucide-react";
+import { Code2, User, LogOut, Loader2, BookmarkCheck, BarChart3, Github, Heart } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 export function Header() {
@@ -39,6 +39,21 @@ export function Header() {
                         Insights
                     </Button>
                 </Link>
+                <Link href="/contribute">
+                    <Button variant="ghost" className="text-gray-300 hover:text-white hover:bg-white/10">
+                        <Heart className="h-4 w-4 mr-1" />
+                        Contribute
+                    </Button>
+                </Link>
+                <a
+                    href="https://github.com/mohitrakh/Leetcode-Company-Wise-Question"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-400 hover:text-white transition-colors"
+                    aria-label="GitHub Repository"
+                >
+                    <Github className="h-5 w-5" />
+                </a>
 
                 {isLoading ? (
                     <Loader2 className="h-5 w-5 animate-spin text-gray-400" />
